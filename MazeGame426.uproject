@@ -1,0 +1,16 @@
+{
+	"FileVersion": 3,
+	"EngineAssociation": "{012C31D8-4E31-E434-D1CF-F1818BC27C9E}",
+	"Category": "",
+	"Description": "",
+	"Modules": [
+		{
+			"Name": "MazeGame426",
+			"Type": "Runtime",
+			"LoadingPhase": "Default",
+			"AdditionalDependencies": [
+				"Engine"
+			]
+		}
+	]
+}
