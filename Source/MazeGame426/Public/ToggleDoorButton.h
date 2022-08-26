@@ -4,44 +4,30 @@
 
 #include "CoreMinimal.h"
 #include "Components/ActorComponent.h"
-#include "Curves/CurveFloat.h"
-#include "DoorRotation.generated.h"
+#include "ArbitraryDoor.h"
+#include "ToggleDoorButton.generated.h"
 
-
-class ATriggerBox;
 
 UCLASS( ClassGroup=(Custom), meta=(BlueprintSpawnableComponent) )
-class MAZEGAME426_API UDoorRotation : public UActorComponent
+class MAZEGAME426_API UToggleDoorButton : public UActorComponent
 {
 	GENERATED_BODY()
 
 public:	
 	// Sets default values for this component's properties
-	UDoorRotation();
+	UToggleDoorButton();
 
 protected:
 	// Called when the game starts
 	virtual void BeginPlay() override;
-
 	UPROPERTY(EditAnywhere)
-	FRotator desiredRotation = FRotator::ZeroRotator;
-	FRotator startRotation = FRotator::ZeroRotator;
-	FRotator finalRotation = FRotator::ZeroRotator;
-
+		AActor* TargetDoorActor;
+	UPROPERTY(VisibleAnywhere)
+		UArbitraryDoor* TargetDoor;
 	UPROPERTY(EditAnywhere)
-		FRotator seeRotation = FRotator::ZeroRotator;
-
-
+		FRotator DispatchRotation;
 	UPROPERTY(EditAnywhere)
-	float timeToRotate = 1.0f;
-	float currentTime = 0.0f;
-
-	UPROPERTY(EditAnywhere)
-	ATriggerBox* TriggerBox;
-
-	UPROPERTY(EditAnywhere)
-	FRuntimeFloatCurve OpenCurve;
-
+    float PressDist;
 
 public:	
 	// Called every frame
